@@ -2,6 +2,7 @@ import { Container, Overlay, Tooltip, Form } from 'react-bootstrap'
 import { useRef, useState } from 'react'
 import { getSourceFilePath } from '../lib/config'
 import { getStory } from '../lib/stories'
+import { genkoYoshiFormat } from '../lib/genkoyoshi'
 
 export default function Page({ story }) {
   const count = countCharacters(story.content)
@@ -28,16 +29,6 @@ export default function Page({ story }) {
       <Content showTodos={showTodos} doubleSpace={doubleSpace}>{formattedText}</Content>
     </Container >
   )
-}
-
-//
-// Genko yoshi format
-//
-
-function genkoYoshiFormat(text) {
-  let lines = text.split(/\n/).map(v => v.replace(/\n/, ''))
-  const result = lines.join('\n')
-  return result
 }
 
 //
