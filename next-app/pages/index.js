@@ -148,7 +148,7 @@ function linesToParagraph(lines) {
 }
 
 function indent(paragraph, i) {
-  if ((i == 0)  // genron wordpress
+  if (false  // genron wordpress
     || ['「', '―'].includes(paragraph[0])) {
     return paragraph
   }
