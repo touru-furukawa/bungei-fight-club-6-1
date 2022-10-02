@@ -2,6 +2,7 @@ import { Container, Overlay, Tooltip, Form } from 'react-bootstrap'
 import { useRef, useState } from 'react'
 import { getSourceFilePath } from '../lib/config'
 import { getStory } from '../lib/stories'
+import { genkoYoshiFormat } from '../lib/genkoyoshi'
 
 export default function Page({ story }) {
   const count = countCharacters(story.content)
@@ -9,11 +10,14 @@ export default function Page({ story }) {
   const [showNotes, setShowNotes] = useState(false)
   const [doubleSpace, setDoubleSpace] = useState(false)
   const text = stringify(story.content, { showTodos, showNotes })
+  const formattedText = genkoYoshiFormat(text)
+  const pageCount = formattedText.split(/\n/).length / 20
 
   return (
     <Container className="mt-4">
       <div className="mt-2 mb-2">
         <span className='badge rounded-pill bg-secondary'>{count} 字</span>
+        <span className='badge rounded-pill bg-secondary ms-1'>{pageCount} 枚</span>
         <CopyButton text={text} className='badge bg-primary ms-1'>
           Copy
         </CopyButton>
@@ -148,7 +152,7 @@ function linesToParagraph(lines) {
 }
 
 function indent(paragraph, i) {
-  if ((i == 0)  // genron wordpress
+  if (false  // genron wordpress
     || ['「', '―'].includes(paragraph[0])) {
     return paragraph
   }
