@@ -9,11 +9,14 @@ export default function Page({ story }) {
   const [showNotes, setShowNotes] = useState(false)
   const [doubleSpace, setDoubleSpace] = useState(false)
   const text = stringify(story.content, { showTodos, showNotes })
+  const formattedText = genkoYoshiFormat(text)
+  const pageCount = formattedText.split(/\n/).length / 20
 
   return (
     <Container className="mt-4">
       <div className="mt-2 mb-2">
         <span className='badge rounded-pill bg-secondary'>{count} 字</span>
+        <span className='badge rounded-pill bg-secondary ms-1'>{pageCount} 枚</span>
         <CopyButton text={text} className='badge bg-primary ms-1'>
           Copy
         </CopyButton>
@@ -22,9 +25,19 @@ export default function Page({ story }) {
         <Form.Check type="switch" label="Double spacing" checked={doubleSpace} onChange={() => { setDoubleSpace(!doubleSpace) }} />
       </div>
       <h1>{story.title}</h1>
-      <Content showTodos={showTodos} doubleSpace={doubleSpace}>{text}</Content>
+      <Content showTodos={showTodos} doubleSpace={doubleSpace}>{formattedText}</Content>
     </Container >
   )
+}
+
+//
+// Genko yoshi format
+//
+
+function genkoYoshiFormat(text) {
+  let lines = text.split(/\n/).map(v => v.replace(/\n/, ''))
+  const result = lines.join('\n')
+  return result
 }
 
 //
