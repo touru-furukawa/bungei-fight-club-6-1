@@ -26,7 +26,7 @@ export default function Page({ story }) {
         <Form.Check type="switch" label="Double spacing" checked={doubleSpace} onChange={() => { setDoubleSpace(!doubleSpace) }} />
       </div>
       <h1>{story.title}</h1>
-      <Content showTodos={showTodos} doubleSpace={doubleSpace}>{formattedText}</Content>
+      <Content showTodos={showTodos} doubleSpace={doubleSpace}>{text}</Content>
     </Container >
   )
 }
