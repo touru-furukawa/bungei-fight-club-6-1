@@ -3,12 +3,16 @@ readers: TODO
 concept: TODO
 theme: TODO
 characters:
-  - main:
-      outside: TODO
+  - 僕:
+      outside: 破産した中年。独身。空き家に住んでいる。
       inside: TODO
       history: TODO
       ordeal: TODO
   - sub:
+      outside: TODO
+      inside: TODO
+      history: TODO
+  - オカン:
       outside: TODO
       inside: TODO
       history: TODO
@@ -17,8 +21,8 @@ settings:
   - オカンはスマートスピーカーに入っている。メモリが少ないので、ちょっとぼけた感じになっている。
   - アリスは捨てられたアンドロイド。回収と破壊を避けてうろうろしている。自立していて依存心がない。
   - 主人公はアリスに充電を少しだけおごっている。
-  - いつどこで: TODO
-  - だれがなにをする: TODO
+  - いつどこで: 死後の認知を高額でアップロードできる近未来
+  - だれがなにをする: 破産した若者が、アンドロイドを助けようとする
   - ITEM:
       description: blah blah blah
       depends_on: ANOTHER ITEM
